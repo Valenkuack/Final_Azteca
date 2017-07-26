@@ -14,6 +14,7 @@
   <div class="container">
 <%= yield %>
   </div>
+  <%= render 'layouts/footer' %>
   
 <% if user_signed_in? %>
   <div> Signed <%= current_user.email %> (<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>)
