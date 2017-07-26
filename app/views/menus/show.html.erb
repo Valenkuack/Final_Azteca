@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1> <%= @menu.name %> </h1>
+</p>
+
+<div class="articale-actions">
+
+  </div>
+</div>
+ 
+<!-- Display the Items of a menu -->
+
+<h1>Products</h2>
+
+<% @menu.items.each do |item| %>
+
+<ul>
+    <li>
+      
+     
+    
+            <div> 
+                 <%= link_to item.name, menu_items_path(@menu, item) %> 
+            </div>
+            
+            
+               <%= number_to_currency(item.price, :unit => "€") %>
+            </div>
+            
+        </div>
+    </li>
+</ul>
+
+
+
+
+<% end %>
+
+    <%= link_to 'New Item', new_menu_item_path(@menu) %> |
+    <%= link_to 'Delete', menu_path(@menu), method: :delete, data: { confirm: "Are you sure yu want to delete it?"} %> |
+    <%= link_to 'Back', menus_path %> |
+    <%= link_to 'Show Items', menu_items_path(@menu) %>
+  
+    

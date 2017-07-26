@@ -1,0 +1,42 @@
+<h1>Editing Item</h1>
+
+
+<%= form_for([@menu, @item]) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <p>
+        <%= f.label :Name %><br />
+        <%= f.text_field :name %>
+    </p>
+    
+
+    <p>
+        <%= f.label :Description %><br />
+        <%= f.text_field :description %>
+    </p>
+    
+     <p>
+        <%= f.label :Price %><br />
+        <%= f.text_field :price %>
+    </p>
+    
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Back', menu_items_path %>

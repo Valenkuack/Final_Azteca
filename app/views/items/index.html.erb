@@ -1,0 +1,56 @@
+<h1 Align="center">Products in <%= @menu.name %></h2>
+
+ INDEX ITEMS
+
+
+<% for item in @items %>
+<tr>
+   
+   <td>
+        
+        <div class="description"> <%= item.name %></div>
+        <div class="description"> <%= item.description %></div>
+        <div class="description"> <%= number_to_currency(item.price, :unit => "Euros ") %></div>
+        <div class="links"><%= link_to 'Show', menu_item_path(@menu, item) %> |
+                           <%= link_to 'Edit', edit_menu_item_path(@menu, item) %> |
+                           <%= link_to 'Destroy', menu_item_path(@menu, item), :confirm => 'Are you sure?', :method => :delete %></td> </div>
+        
+        <a href="/cart/<%= item.id %>">Add to Cart</a>
+   </td> 
+</tr>
+<tr><td colspan="2">
+    <hr/>    
+</td></tr>   
+   
+    
+      
+    
+    <!---<div class="two">
+        <h1>  link_to (image_tag item.image, :style => "height:150px") %> </h1>
+    </div>
+    
+    <div class="three">
+        < item.description %>
+    </div>
+    
+     <div class="three">
+        < number_to_currency(item.price, :unit => "Euros ") %>
+      </div>
+</div> --->
+      
+      
+       
+        
+        
+          <!--a href="/cart/< item.id %>">Add to Cart</a><br /><br /-->
+       
+
+<% end %>
+
+<% if session[:login] ==1%>
+
+<%= link_to 'New Item', new_menu_item_path(@menu) %>
+
+<% end %>
+
+<%= link_to 'Back to the Items', @menu %>
