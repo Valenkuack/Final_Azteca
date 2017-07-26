@@ -48,6 +48,7 @@
 <% end %>
 
 <% if session[:login] ==1%>
+<% if current_user.admin? %>
 
 <%= link_to 'New Item', new_menu_item_path(@menu) %>
 
