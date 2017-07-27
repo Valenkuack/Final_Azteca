@@ -13,10 +13,9 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            
             <th>Product</th>
             <th>Quantity</th>
-            <th class="text-center">Price</th></th>
+            <th class="text-center">Price</th>
             <th class="text-center">Total</th>
             <th>.</th>
         </tr>
@@ -32,20 +31,19 @@
                             <div class="media-body">
                                 <h4 class="media-heading"><%= item.name %></h4>
             </div>
-            <div></div>
+            </div></td>
             <td class="col-sm-1 col-md-1" style="text-alighn: center"><%= quantity %>
-                
+            
+            </td>    
                         <td class="col-sm-1 col-md-1 text-center"><%= number_to_currency(item.price, :unit => "€" ) %></td>
                         <td class="col-sm-1 col-md-1 text-center"><%= number_to_currency(quantity * item.price, :unit => "€") %></td>
-                        <td class="col-md-1">
+                        <td class="col-md-1 col-md-1">
                         <button type="button" class="btn btn-danger">
-                             
-                            
-                        </button></td>
+                             <span class="glyphicon glyphicon-remove"></span> Remove
+                            </button></td>
         </tr>
-        
-        
-      
+       
+    
         <tr>
             <td>   </td>
             <td>   </td>
@@ -54,29 +52,31 @@
             <td class="text-right"><h5><%= number_to_currency(quantity * item.price, :unit => "€") %></h5></td>
         </tr>
        
-        <tr>
+         
+        
+          <td class="text-right"><h3><% total += quantity * item.price %></h3></td></td>   
+        
+ <% end %>      
+             <tr>
             <td>   </td>
             <td>   </td>
             <td>   </td>
-            <td><h3>Total</h3></td>
-            <td class="text-right"><h3><% total += quantity * item.price %></h3></td>
-        </tr>    
- <% end %>                 
-        <tr>
-            <td>   </td>
-            <td>   </td>
-            <td>   </td>
-            <td>
-            <button type="button" class="btn btn-default">
+            <td><td class="text-right"><h3>Total  <%= number_to_currency(total, :unit => "€")%></h3>
+           </tr>
+        
+            
+            
+    </body>
+</table>
+
+<button type="button" class="btn btn-default">
                 <span class="glyphicon glyphicon-shopping-cart"><%= link_to 'Back to Menu', :controller => :menus %></span>
                 </button></td>
-            <td>
+                 
+        
             <button type="button" class="btn btn-success">
                 Checkout <span class="glyphicon glyphicon-play"></span>
             </button></td>   
-        </tr>
-    </body>
-</table>
 </div>
 </div>
 </div>
