@@ -3,14 +3,9 @@
 <h1> <%= @menu.name %> </h1>
 </p>
 
-<div class="articale-actions">
-
-  </div>
-</div>
- 
 <!-- Display the Items of a menu -->
 
-<h1>Products</h2>
+<h1>Products</h1>
 
 <% @menu.items.each do |item| %>
 
@@ -22,12 +17,9 @@
             <div> 
                  <%= link_to item.name, menu_items_path(@menu, item) %> 
             </div>
-            
-            
+            <div>
                <%= number_to_currency(item.price, :unit => "€") %>
             </div>
-            
-        </div>
     </li>
 </ul>
 

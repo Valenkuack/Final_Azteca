@@ -6,13 +6,13 @@ class UserController < ApplicationController
         session[:login] = 1
         session[:cart] = nil
         flash[:notice] = "Admin login Successful!!!"
-        redirect_to :controller => :companies
+        redirect_to :controller => :menus
     end
     
     def logout
         session[:login] = nil
         session[:cart] = nil
         flash[:notice] = "You have been successfully logged out !!!"
-        redirect_to :controller => :companies
+        redirect_to :controller => :menus
     end
 end

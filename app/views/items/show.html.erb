@@ -17,7 +17,9 @@
     <hr/>    
 </td></tr>   
 
-           
+<% if current_user.admin? %>       
 
 <%= link_to 'Edit', edit_menu_item_path(@menu, @item)%> |
+<% end %>
+
 <%= link_to 'Back to the Items', @menu %>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'site/contact'
   get 'site/mission'
   get 'site/standards'
+  
   get 'items/index'
   get 'items/show'
   get 'items/new'

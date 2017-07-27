@@ -3,12 +3,4 @@ class SessionsController < Devise::SessionsController
     def after_sign_out.path_for(resource)
        home_path
     end
-    
-    def user_signed_in
-        if menus_path
-            else
-                home_path
-    end
-
-
 end

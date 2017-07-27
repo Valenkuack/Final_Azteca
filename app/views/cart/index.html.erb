@@ -1,7 +1,8 @@
-<div class="main">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+    
     <h1 Align="center">Your cart</h1>
-</div>
-
 
 <% if @cart.empty? %>
     <p>Your Cart is empty</p>
@@ -9,38 +10,79 @@
 
 <% total = 0 %>
 
-<table class="cart">
-    <tr>
-        <td class="legend"></td>
-        <td class="legend">Name</td>
-        <td class="legend">Price</td>
-        <td class="legend">Quantity</td>
-        <td class="legend">Total</td>
-        
-    </tr>
-    
-<% @cart.each do | id, quantity | %>
-    <% item = Item.find_by_id(id) %>
-    <tr>
-        <td>
+<table class="table table-hover">
+    <thead>
+        <tr>
             
-        </td>
-        <td class="name"><%= link_to item.name %></td>
-        <td class="pricec"><%= number_to_currency(item.price, :unit => "€" ) %></td>
-        <td class="quantity"><%= quantity %><br/></td>
-        <td class="priceeee"><%= number_to_currency(quantity * item.price, :unit => "€") %></td>
-    </tr>
-    <% total += quantity * item.price %>
-<% end %>
-
-    <tr>
-        <td colspan="4">
-            <div class="total">Total:</div>
-        </td>
-        <td>
-            <div class="pricet"><%= number_to_currency(total, :unit => "€") %></div>
-        </td>
-    </tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th class="text-center">Price</th></th>
+            <th class="text-center">Total</th>
+            <th>.</th>
+        </tr>
+    </thead>
+        
+    <tbody>
+        <% @cart.each do | id, quantity | %>
+        <% item = Item.find_by_id(id) %>
+        <tr>
+        <td class="col-sm-8 col-md-6">
+            <div class="media">
+                <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><%= item.name %></h4>
+            </div>
+            <div></div>
+            <td class="col-sm-1 col-md-1" style="text-alighn: center"><%= quantity %>
+                
+                        <td class="col-sm-1 col-md-1 text-center"><%= number_to_currency(item.price, :unit => "€" ) %></td>
+                        <td class="col-sm-1 col-md-1 text-center"><%= number_to_currency(quantity * item.price, :unit => "€") %></td>
+                        <td class="col-md-1">
+                        <button type="button" class="btn btn-danger">
+                             
+                            
+                        </button></td>
+        </tr>
+        
+        
+      
+        <tr>
+            <td>   </td>
+            <td>   </td>
+            <td>   </td>
+            <td><h5>Subtotal</h5></td>
+            <td class="text-right"><h5><%= number_to_currency(quantity * item.price, :unit => "€") %></h5></td>
+        </tr>
+       
+        <tr>
+            <td>   </td>
+            <td>   </td>
+            <td>   </td>
+            <td><h3>Total</h3></td>
+            <td class="text-right"><h3><% total += quantity * item.price %></h3></td>
+        </tr>    
+ <% end %>                 
+        <tr>
+            <td>   </td>
+            <td>   </td>
+            <td>   </td>
+            <td>
+            <button type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-shopping-cart"><%= link_to 'Back to Menu', :controller => :menus %></span>
+                </button></td>
+            <td>
+            <button type="button" class="btn btn-success">
+                Checkout <span class="glyphicon glyphicon-play"></span>
+            </button></td>   
+        </tr>
+    </body>
 </table>
+</div>
+</div>
+</div>
+        
+            
+    
+        
+   
 
-<%= link_to 'Back to Menu', :controller => :menus %>

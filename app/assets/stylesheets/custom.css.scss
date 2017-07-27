@@ -1,8 +1,9 @@
 $navbar-default-bg: #cc0000;
 
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
 
 #logo{
     float: left;
@@ -27,7 +28,7 @@ $navbar-default-bg: #cc0000;
 }
 
 footer{
-    margin-top: 45px;
+    margin-top: 15px;
     padding-top: 5px;
     border-top: 1px solid #eaeaea;
     color: #777;

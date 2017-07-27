@@ -10,7 +10,6 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
     @menu = Menu.find(params[:menu_id])
     # Access all items for that menu
     @items = @menu.items
-    
   end
   
 # GET /menus/1/items/2
@@ -77,6 +76,18 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
       format.xml { head :ok }
     end
   end
+  
+  private
+  
+  def set_item
+    @item = Item.find(params[:id])
+  end
+  
+  def item_params
+    params.require(:item).permit(:name, :description, :price)
+  end 
+    
+  
   
   def ensure_admin
     unless current_user && current_user.admin?
