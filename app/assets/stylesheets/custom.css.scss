@@ -1,9 +1,12 @@
 $navbar-default-bg: #cc0000;
 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
+.dropdown{
+    color: #fff;
+}
 
 #logo{
     float: left;

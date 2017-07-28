@@ -15,8 +15,8 @@
   <tbody>
     <% @menus.each do |menu| %>
       <tr>
-        <td><%= menu.name %></td>
-        <td><%= link_to 'Show', menu %></td>
+       
+        <td><%= link_to menu.name, menu %></td>
         <% if user_signed_in?%>
           <%if current_user.admin==true%>
         <td><%= link_to 'Edit', edit_menu_path(menu) %></td>

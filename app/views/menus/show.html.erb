@@ -29,8 +29,13 @@
 
 <% end %>
 
-    <%= link_to 'New Item', new_menu_item_path(@menu) %> |
-    <%= link_to 'Delete', menu_path(@menu), method: :delete, data: { confirm: "Are you sure yu want to delete it?"} %> |
+    <% if user_signed_in?%>
+       <%if current_user.admin==true%>        
+            <%= link_to 'New Item', new_menu_item_path(@menu) %> |
+            <%= link_to 'Delete', menu_path(@menu), method: :delete, data: { confirm: "Are you sure yu want to delete it?"} %> |
+        <% end %>
+    <%end%>
+    
     <%= link_to 'Back', menus_path %> |
     <%= link_to 'Show Items', menu_items_path(@menu) %>
   

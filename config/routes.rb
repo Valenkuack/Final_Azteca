@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   resources :profiles
   
 
+
   devise_for :users
   get 'cart/index'
+
+  
 
   get 'site/about'
   get 'site/contact'
