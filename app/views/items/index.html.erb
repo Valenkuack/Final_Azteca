@@ -1,8 +1,5 @@
 <h1 Align="center">Products in <%= @menu.name %></h2>
 
- INDEX ITEMS
-
-
 <% for item in @items %>
 <tr>
    
@@ -10,7 +7,8 @@
         
         <div class="description"> <%= item.name %></div>
         <div class="description"> <%= item.description %></div>
-        <div class="description"> <%= number_to_currency(item.price, :unit => "Euros ") %></div>
+        <div class="description"> <%= number_to_currency(item.price, :unit => "€") %></div>
+        <br>
         <% if current_user.admin? %>
         <div class="links"><%= link_to 'Show', menu_item_path(@menu, item) %> |
                            <%= link_to 'Edit', edit_menu_item_path(@menu, item) %> |

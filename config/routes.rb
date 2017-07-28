@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :profiles
+  
 
   devise_for :users
   get 'cart/index'
@@ -23,7 +24,6 @@ Rails.application.routes.draw do
   get '/lessons' => 'site#lessons'
   get '/home' => 'site#home'
   
-  
   get 'Admin' => 'user#admin_login'
   get '/logout' => 'user#logout'
   
@@ -31,7 +31,6 @@ Rails.application.routes.draw do
  get '/cart/clear' => 'cart#clearCart'
  get '/cart/:id' => 'cart#add'
  get '/signedinuserprofile' => 'profiles#signedinuserprofile'
-  
   
   
 

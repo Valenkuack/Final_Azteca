@@ -1,29 +1,19 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
+<div class="profile-block">
+  <div class="panel text-center">
+    <div class="user-heading"> <a href="#"><img src="http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png" alt="" title=""></a>
+      <h1><%= @profile.name %> <%= @profile.lastname %> </h1>
+      <p> <%= @profile.email %></p>
+      <p><%= @profile.phone %></p>
+    </div>
+    <ul class="nav nav-pills nav-stacked">
+      <li> <%= link_to 'Edit Profile', edit_profile_path(@profile) %> </li>
+      <li><a href="#"><i class="fa fa-usd" aria-hidden="true"></i>My lessons</a></li>
+      <li><a href="#"><i class="fa fa-usd" aria-hidden="true"></i>My orders</a></li>
+    </ul>
+  </div>
+</div>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @profile.lastname %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @profile.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @profile.phone %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @profile.user %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>

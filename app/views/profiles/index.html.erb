@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<% if current_user.admin? %>
 <h1>Listing Profiles</h1>
-
-<table>
+<br>
+<br>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -33,3 +34,5 @@
 <br>
 
 <%= link_to 'New Profile', new_profile_path %>
+
+<% end %>

@@ -1,16 +1,12 @@
-<h1>Items#show</h1>
 <h2 align="center">Products in <%= @menu.name %></h2>
 <p>
     
     <b>Products details show:</b>
   
         <td>
-        
             <div class="title"><p><%= @item.name %></p> </div>
             <div class="description">Description: <%= @item.description %></div>
-            <div class="price"> Price: <%= number_to_currency(@item.price, :unit => "€") %></div>
-        
-        
+            <div class= right "price"> Price: <%= number_to_currency(@item.price, :unit => "€") %></div>
         </td>
           
 <tr><td colspan="2">
