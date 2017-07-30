@@ -9,11 +9,15 @@
       <p><%= @profile.phone %></p>
     </div>
     <ul class="nav nav-pills nav-stacked">
-      <li> <%= link_to 'Edit Profile', edit_profile_path(@profile) %> </li>
-      <li><a href="#"><i class="fa fa-usd" aria-hidden="true"></i>My lessons</a></li>
-      <li><a href="#"><i class="fa fa-usd" aria-hidden="true"></i>My orders</a></li>
+      <li> <%= link_to 'Edit Profile', edit_profile_path(@profile) %></li>
+      <li><a href="#">My lessons</a></li>
+      <li><a href="#">My orders</a></li>
     </ul>
   </div>
 </div>
 
+<%if user_signed_in?%>
+   <%if current_user.admin==true%>
 <%= link_to 'Back', profiles_path %>
+<% end %>
+<%end %>
